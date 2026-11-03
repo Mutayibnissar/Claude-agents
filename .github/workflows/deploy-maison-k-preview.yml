@@ -32,16 +32,15 @@ jobs:
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Prepare static site
         run: |
           mkdir -p _site
           cp projects/maison-k-bakery/index.html _site/index.html
+          touch _site/.nojekyll
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: _site
 
